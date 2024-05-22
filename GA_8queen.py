@@ -3,7 +3,7 @@ import numpy as np
 
 
 def initial_population(num_population):
-    return(rn.randint(8, size=(num_population, 8)))
+    return (rn.randint(8, size=(num_population, 8)))
 
 
 def Fitness(population):
@@ -21,7 +21,7 @@ def Fitness(population):
                     collision += 1
                 k += 1
         fitness.append(28 - collision)
-    return(fitness)
+    return (fitness)
 
 
 def Relative_selection(fitness, population):
@@ -35,7 +35,7 @@ def Relative_selection(fitness, population):
     for i in range(len(population)):
         population_2.append(population[relative[i]])
     population_2 = np.array(population_2, int)
-    return(population_2)
+    return (population_2)
 
 
 def multi_point_crossover(parents):
@@ -48,7 +48,7 @@ def multi_point_crossover(parents):
             cut = list(children[i-1][x:y])
             children[i-1][x:y] = children[i][x:y]
             children[i][x:y] = cut
-    return(children)
+    return (children)
 
 
 def mutation(parents_children):
@@ -59,7 +59,7 @@ def mutation(parents_children):
         y = rn.randint(len(parents_children[x]))
         z = rn.randint(8)
         parents_children[x][y] = z
-    return(parents_children)
+    return (parents_children)
 
 
 def steady_state_replacement(population, children, fitness):
@@ -78,11 +78,11 @@ def steady_state_replacement(population, children, fitness):
         fitness[j] = 0
 
     population = np.array(new_population, int)
-    return(population)
+    return (population)
 
 
 def generational_replacement(children):
-    return(children)
+    return (children)
 
 
 def elitism(population, children, fitness_children, fitness_population):
@@ -95,7 +95,7 @@ def elitism(population, children, fitness_children, fitness_population):
     new_population.append(population[j])
     population = np.array(new_population, int)
     rn.shuffle(population)
-    return(population)
+    return (population)
 
 
 def selection_method(population, children, fitness_children, fitness_population):
@@ -113,7 +113,8 @@ def selection_method(population, children, fitness_children, fitness_population)
         fitness[j] = 0
     population = np.array(new_population, int)
     rn.shuffle(population)
-    return(population)
+    return (population)
+
 
 if __name__ == '__main__':
     num_population = 50

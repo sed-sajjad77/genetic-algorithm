@@ -37,7 +37,7 @@ def Relative_selection(fitness, population):
     for i in range(len(population)):
         population_2.append(population[i])
     population_2 = np.array(population_2, float)
-    return(population_2)
+    return (population_2)
 
 
 def crossover(parents):
@@ -52,7 +52,7 @@ def crossover(parents):
     for i in range(len(children)):
         if i % 2 == 0:
             child.append(children[i])
-    return(child)
+    return (child)
 
 
 def mutation(children, lower, upper):
@@ -63,7 +63,7 @@ def mutation(children, lower, upper):
         mutate_idx = rn.randint(0, 2)
         random_value = rn.uniform(lower, upper)
         children[child][mutate_idx] = random_value
-    return(children)
+    return (children)
 
 
 def steady_state_replacement(population, children, fitness):
@@ -82,7 +82,7 @@ def steady_state_replacement(population, children, fitness):
         fitness[j] = 0
 
     population = np.array(new_population, float)
-    return(population)
+    return (population)
 
 
 if __name__ == '__main__':
@@ -107,7 +107,7 @@ if __name__ == '__main__':
         fitness = Fitness(population)
         idx_best = np.where(fitness == max(fitness))
         best_epock = population[idx_best[0][0]]
-        if(ackley(best_epock) < ackley(best)):
+        if (ackley(best_epock) < ackley(best)):
             improvement = 0
             best = best_epock
         epock += 1
