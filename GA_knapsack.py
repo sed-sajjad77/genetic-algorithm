@@ -80,7 +80,7 @@ def mutation(offsprings):
 
 
 # main
-path = "KnapsackData\Knapsack_05.txt"
+path = "KnapsackData/Knapsack_01.txt"
 knapsack_w, number, weight, value = read_file(path)
 # print(knapsack_w, number, weight, value)
 num_population = 50
